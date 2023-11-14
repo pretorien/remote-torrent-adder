@@ -266,6 +266,10 @@ RTA.clients.config.qbittorrent = multiline(function(){/*
 
 RTA.clients.config.qbittorrentv2 = multiline(function(){/*
 			<tbody name="qbittorrentv2specifics" class="specifics">
+   				<tr>
+					<td><span class="title">Relative path</span></td>
+					<td><input type="text" name="qbittorrentv2relativepath" /></td>
+				</tr>
 				<tr>
 					<td><span class="title">Label/Directory<br/>interactivity</span></td>
 					<td><input type="checkbox" name="qbittorrentv2dirlabelask" /><br />
