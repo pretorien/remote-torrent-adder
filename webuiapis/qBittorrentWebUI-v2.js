@@ -1,5 +1,6 @@
-RTA.clients.qBittorrentV2Adder = function(server, data, torrentname, label, dir, additionalPath = "") {
+RTA.clients.qBittorrentV2Adder = function(server, data, label, dir) {
     var rootUrl = (server.hostsecure ? "https" : "http") + "://" + server.host + ":" + server.port;
+    var additionalPath = server.qbittorrentv2relativepath;
     if (additionalPath) {
         if (!additionalPath.startsWith("/")) {
             additionalPath = "/" + additionalPath;
@@ -22,10 +23,10 @@ RTA.clients.qBittorrentV2Adder = function(server, data, torrentname, label, dir,
         } else {
             var message = new FormData();
             if(data.substring(0,7) == "magnet:") {
-                message.append("urls", data)
+                message.append("urls", data);
             } else {
                 const dataBlob = RTA.convertToBlob(data, "application/x-bittorrent");
-                const myName = ((torrentname.length && torrentname.length > 1) ? torrentname : (new Date).getTime());
+                const myName = (new Date).getTime();
                 message.append("fileselect[]", dataBlob, myName);
             }
 
